@@ -7,7 +7,6 @@ class Whiteboard : public QWidget {
     Q_OBJECT
   public:
     Whiteboard(QWidget *parent = nullptr);
-    void setPenColor(const QColor  &newColor);
     void setPenWidth(int newWidth);
     QColor penColor() const {
         return curPenColor;
@@ -17,6 +16,7 @@ class Whiteboard : public QWidget {
     }
 
   public slots:
+    void setPenColor(const QColor  &newColor = Qt::red);
     void clearImage();
     void print();
 
@@ -32,7 +32,7 @@ class Whiteboard : public QWidget {
     void resizeImage(QImage *image, const QSize &newSize);
     bool penDown = false;
     int curPenWidth = 1;
-    QColor curPenColor = Qt::blue;
+    QColor curPenColor = Qt::black;
     QImage image;
     QPoint lastPoint;
 };
